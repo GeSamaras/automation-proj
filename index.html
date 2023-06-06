@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <h1>Welcome to My Portfolio!</h1>
+    <button onclick="fetchData()">Get Data</button>
+    <div id="data-container"></div>
+
+    <script>
+      function fetchData() {
+        fetch('<API_GATEWAY_ENDPOINT>')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('data-container').innerHTML = data.message;
+          })
+          .catch(error => console.log(error));
+      }
+    </script>
+  </body>
+</html>
